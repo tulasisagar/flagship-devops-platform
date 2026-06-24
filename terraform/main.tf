@@ -132,3 +132,15 @@ resource "aws_route_table_association" "private_assoc_2" {
   subnet_id      = aws_subnet.private_subnet_2.id
   route_table_id = aws_route_table.private_rt.id
 }
+resource "aws_instance" "jenkins_server" {
+  ami                         = "ami-006f82a1d5a27da54"
+  instance_type               = "t3.micro"
+  key_name                    = "three-tier-key"
+  subnet_id                   = aws_subnet.public_subnet.id
+  vpc_security_group_ids      = [aws_security_group.jenkins_sg.id]
+  associate_public_ip_address = true
+
+  tags = {
+    Name = "jenkins-server"
+  }
+}

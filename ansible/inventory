@@ -1,0 +1,6 @@
+[jenkins]
+65.2.78.130
+
+[jenkins:vars]
+ansible_user=ubuntu
+ansible_ssh_private_key_file=~/three-tier-key.pem
