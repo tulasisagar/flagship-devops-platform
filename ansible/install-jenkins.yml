@@ -16,6 +16,7 @@
           - git
           - docker.io
           - curl
+          - maven  
         state: present
 
     - name: Download Jenkins 2026 key
